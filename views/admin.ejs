@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 11px;
+            text-align: center;
+            border: 1px solid #ddd; /* Adding border to cells */
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        .logout-btn {
+            float: right;
+            margin-top: 20px; /* Adjust as needed */
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .logout-btn a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .logout-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+    
+</head>
+<body>
+    <button class="logout-btn"><a href="/logout">Logout</a></button>
+    <h1>Bookings Data</h1>
+    <table>        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Check-in</th>
+                <th>Days</th>
+                <th>Persons</th>
+                <th>Depart From</th>
+                <th>Destination</th>
+                <th>Comments</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach(user => { %>
+                <tr>
+                    <td><%= user.name %></td>
+                    <td><%= user.email %></td>
+                    <td><%= user.phone %></td>
+                    <td><%= user.checkIn %></td>
+                    <td><%= user.days %></td>
+                    <td><%= user.persons %></td>
+                    <td><%= user.departFrom %></td>
+                    <td><%= user.destination %></td>
+                    <td><%= user.comments%></td>
+                    <!-- Add other table cells as needed -->
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>
